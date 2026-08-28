@@ -32,6 +32,6 @@ console.log(question);
 
 // Ask the user's name and display it on the webpage using document.writeln().
 
-let user_Name = prompt("Enter your name");
+userName = prompt("Enter your name");   // here i am reuse/reinistilaize above declared  variable as userName
 
-document.writeln("Your name is " + user_Name);
+document.writeln("Your name is " + userName);
