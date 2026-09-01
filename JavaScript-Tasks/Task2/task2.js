@@ -248,17 +248,17 @@ console.log(studentDetails);
 
 // Final Challenge -- User + Calculator
 
-let userNumber1 = prompt("Enter Your First Number"); //assume 10
-let userNumber2 = prompt("Enter Your Second Number"); // assume 5
+let userNumber1 = Number(prompt("Enter Your First Number")); //assume 10
+let userNumber2 = Number(prompt("Enter Your Second Number")); // assume 5
 
-let add = userNumber1 + userNumber2;   // Numbers act as String Because Using prompt to give input it acts as a String
+let add = userNumber1 + userNumber2;   
 let sub = userNumber1 - userNumber2;
 let mul = userNumber1 * userNumber2;
 let div = userNumber1 / userNumber2;
 let mod = userNumber1 % userNumber2;
 let pow = userNumber1 ** userNumber2;
 
-console.log("Addition : ", add); // 105
+console.log("Addition : ", add); // 15
 console.log("Subtraction : ", sub); // 5
 console.log("Multiplication : ", mul); // 50
 console.log("Division : ", div); // 2
