@@ -73,7 +73,7 @@ console.log(typeof(xyz));  // typeof null returns "object" due to a historical J
 
 // // Task6 -- Student Data
 
-let studentData = {
+const studentData = {
     name : "Abdul",
     age : 26,
     city : "Rayachoty",
@@ -90,7 +90,7 @@ console.log(studentData.isStudent);
 
 // Task7 -- Fruit Array
 
-let fruitContainer = ["Apple","Mango","Orange","Banana","Grapes","Papaya"];
+const fruitContainer = ["Apple","Mango","Orange","Banana","Grapes","Papaya"];
 
 console.log(fruitContainer[0]);
 console.log(fruitContainer[1]);
@@ -227,9 +227,9 @@ let sAge = "26";
 let sCity = "Rayachoty";
 let sCollege = "Rgukt";
 
-let favoriteSubjects = ["Tamil","Hindi","English","Maths","Science"];
+const favoriteSubjects = ["Tamil","Hindi","English","Maths","Science"];
 
-let studentDetails = {
+const studentDetails = {
     name : sName,
     age : sAge,
     city : sCity,
