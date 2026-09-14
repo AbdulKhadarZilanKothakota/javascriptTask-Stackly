@@ -1,7 +1,7 @@
 /*
 // Task 1
-
-fetch("https://fakestoreapi.com/products")
+const api = "https://fakestoreapi.com/products"
+fetch(api)
 .then(response => response.json())
 .then( data => {
     
@@ -30,7 +30,7 @@ fetch("https://fakestoreapi.com/products")
     },0)
     console.log("Total Price : ", totalPrice);
 
-    const highestToLowest = data.sort((a, b) => {
+    const highestToLowest = [...data].sort((a, b) => {
         return b.price - a.price
     })
     console.log("Sorting Highest to Lowest Price", highestToLowest);
@@ -74,7 +74,7 @@ fetch("https://fakestoreapi.com/products")
     )
     console.log("Women's Clothing : ", womenClothingLength.length);
 
-    const sortedProducts = data.sort((a, b) => {
+    const sortedProducts = [...data].sort((a, b) => {
         return b.price - a.price
     })
     console.log("Height Price : ", sortedProducts[0].price);
@@ -165,7 +165,7 @@ console.log(longTitlePost);
 // Task 4 --  API + Search
 
 function searchProducts() {
-  const category = prompt("Enter product category:");
+  const category = prompt("Enter product category:").toLowerCase();
   const maxPrice = Number(prompt("Enter maximum price:"));
 
   fetch("https://fakestoreapi.com/products")
@@ -214,6 +214,11 @@ products.forEach(product => {
 const input = prompt(
     "Enter product IDs separated by commas:\nExample: 1, 3, 5"
 );
+
+if (!input) {
+    console.log("No products selected.");
+    return;
+}
 
 const selectedIds = input
     .split(",")
@@ -275,11 +280,11 @@ console.log("Final Amount: $" + finalAmount.toFixed(2));
 /*
 // Task 6 -- FakeStore Product Report
 
-const apiLink = "https://fakestoreapi.com/products";
+const api = "https://fakestoreapi.com/products";
 
-console.log("========== PRODUCT REPORT ==========");
+console.log("===== PRODUCT REPORT =====");
 
-fetch(apiLink)
+fetch(api)
   .then(response => response.json())
   .then(data => {
 
@@ -288,7 +293,7 @@ fetch(apiLink)
 
 
     // Display all products using forEach()
-    console.log("\nProduct Details:");
+    console.log("Product Details:");
 
     data.forEach(product => {
       console.log(
@@ -315,15 +320,13 @@ fetch(apiLink)
     console.log("Products Above $100:");
 
     expensiveProducts.forEach(product => {
-      console.log(
-        `${product.title} - $${product.price}`
-      );
+      console.log(`${product.title} - $${product.price}`);
     });
 
 
     // Find electronics product using find()
-    const electronicsProduct = data.find(
-      product => product.category === "electronics"
+    const electronicsProduct = data.find(product => 
+        product.category === "electronics"
     );
 
     console.log("Electronics Product:");
@@ -332,24 +335,22 @@ fetch(apiLink)
       console.log(
         `${electronicsProduct.title} - $${electronicsProduct.price}`
       );
-    } else {
-      console.log("No electronics product found.");
+    } 
+    else {
+      console.log("No electronics product.");
     }
 
 
     // Calculate total price using reduce()
-    const totalPrice = data.reduce(
-      (acc, product) => acc + product.price,
-      0
-    );
+    const totalPrice = data.reduce((acc, product) => acc + product.price,0);
 
     console.log("Total Product Value:");
     console.log("$" + totalPrice.toFixed(2));
 
 
     // Check if any product is above $500 using some()
-    const anyAbove500 = data.some(
-      product => product.price > 500
+    const anyAbove500 = data.some(product =>
+        product.price > 500
     );
 
     console.log("Any Product Above $500:");
@@ -357,8 +358,8 @@ fetch(apiLink)
 
 
     // Check if every product is above $1 using every()
-    const allAbove1 = data.every(
-      product => product.price > 1
+    const allAbove1 = data.every(product =>
+        product.price > 1
     );
 
     console.log("All Products Above $1:");
@@ -366,16 +367,14 @@ fetch(apiLink)
 
 
     // Sort highest price → lowest price
-    const sortedProducts = [...data].sort(
-      (a, b) => b.price - a.price
+    const sortedProducts = [...data].sort((a, b) =>
+        b.price - a.price
     );
 
-    console.log("Highest → Lowest:");
+    console.log("Highest to Lowest:");
 
     sortedProducts.forEach(product => {
-      console.log(
-        `${product.title} - $${product.price}`
-      );
+      console.log(`${product.title} - $${product.price}`);
     });
 
   })
